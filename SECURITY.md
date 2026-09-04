@@ -4,7 +4,7 @@ CAUTEL is a security product; we treat reports seriously.
 
 ## Reporting a vulnerability
 
-Email `security@<your-domain>` with:
+Email **paynescrossingpm@gmail.com** with:
 
 1. A description of the issue
 2. Steps to reproduce (conceptual or against the public material)

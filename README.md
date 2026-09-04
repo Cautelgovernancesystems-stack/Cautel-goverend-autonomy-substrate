@@ -73,7 +73,7 @@ This showcase is the beginning of a conversation, not the end.
 - **Licensing & partnership** — enterprise deployment, integration, federation
 - **Feedback & research** — open an [issue](https://github.com/Cautelgovernancesystems-stack/Cautel-goverend-autonomy-substrate/issues)
 
-📧 `contact@cautel.example` *(placeholder — replace before publishing)*
+📧 **paynescrossingpm@gmail.com**
 
 ---
 
