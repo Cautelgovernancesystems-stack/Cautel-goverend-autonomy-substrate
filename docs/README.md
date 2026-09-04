@@ -6,6 +6,8 @@ we use — deliberately free of implementation detail.
 | Page | Purpose |
 |---|---|
 | [OVERVIEW.md](OVERVIEW.md) | One-screen summary of the whole system |
+| [THESIS.md](THESIS.md) | The case for governed autonomy (thought leadership) |
+| [DEMO.md](DEMO.md) | See it in action — recorded demonstrations |
 | [CATEGORY_DEFINITIONS.md](CATEGORY_DEFINITIONS.md) | What CAUTEL governs: agents, tools, executors, planes |
 | [SYSTEM_PURPOSE.md](SYSTEM_PURPOSE.md) | The problem, the threat model, the design answer |
 | [DIAGRAMS.md](DIAGRAMS.md) | High-level diagrams (mermaid) |

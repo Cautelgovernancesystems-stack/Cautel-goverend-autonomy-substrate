@@ -1,30 +1,20 @@
 # Contributing
 
-CAUTEL's public repository accepts contributions to its **conceptual layer**:
+CAUTEL is a proprietary showcase — the runtime is not open source, and we
+cannot accept unsolicited code contributions at this time.
 
-- `docs/` — explanations, glossary, whitepaper sections
-- `architecture/` — diagrams and lifecycles
-- `specs/` — formal object definitions and invariants
-- `governance/` — rule text and semantics
-- `validation/` — methodology and summary formats
-- `roadmap/` — direction proposals
+What we welcome:
 
-## How to contribute
+- **Issues** — observations, questions, and feedback on the conceptual
+  material (docs, specs, governance, validation methodology)
+- **Research discussion** — analysis of the invariants and threat model
+- **Corrections** — factual errors in the documentation
 
-1. Open an issue describing the change (or pick a `good first issue`).
-2. Fork, branch, and edit only the folders above.
-3. Keep every page conceptual — no code, no configs, no real logs.
-4. Open a PR. Link the issue. Keep diffs small.
+Before opening an issue, check the [roadmap](roadmap/) — if your idea is
+already planned, adding context there helps more than a duplicate thread.
 
-## Style
+## For prospective partners
 
-- American English, sentence case headings.
-- Mermaid for all diagrams (see `architecture/`).
-- Specifications use MUST / MUST NOT / SHOULD (RFC 2119).
-- If a page needs information that isn't public, mark it `[RUNTIME — NOT PUBLIC]`
-  rather than approximating implementation detail.
-
-## Licence of contributions
-
-By contributing you agree your contribution is licensed under the repository
-LICENSE (CC-BY-4.0 for documentation).
+For demos, licensing, evaluation access, or integration discussions, use the
+contact details in the [README](README.md). Evaluation access is provided
+under NDA on a case-by-case basis.

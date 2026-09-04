@@ -1,63 +1,80 @@
 # CAUTEL — governed autonomy substrate
 
-**Constitutionally governed execution plane with tamper-evident audit.**
+**Constitutionally governed execution for AI agents — with tamper-evident proof.**
 
-CAUTEL is a governance-first execution environment for AI agents and
-automation. Every action an agent takes must be authorised by a delegation
-graph rooted in a human authority, executed inside a sandboxed boundary, and
-recorded into a tamper-evident evidence chain. If the constitutional rules
-are violated — or the system cannot prove they were satisfied — CAUTEL
-**fails closed** and refuses to execute.
+CAUTEL is a governed autonomy substrate: a runtime in which agents can only
+execute, delegate, evolve, and produce evidence under cryptographic
+authority. Every action answers three questions before it happens:
 
-> This repository contains public documentation, formal specifications,
-> governance rules, and black-box validation summaries. Runtime implementation
-> remains proprietary; see [LICENSE](LICENSE) and
-> [PUBLISH_CHECKLIST.md](PUBLISH_CHECKLIST.md).
+1. **May it?** — an unbroken, signed delegation path from a human root
+2. **Does it stay inside?** — execution within a constructive sandbox boundary
+3. **Can we prove it?** — an append-only, tamper-evident evidence DAG
 
-## Why CAUTEL exists
+And the doctrine that makes it different: **when in doubt, refuse.**
+If any rule fails — or compliance cannot be *proven* — CAUTEL fails closed.
 
-Autonomous agents are powerful and fast — exactly the properties that make
-them dangerous when ungoverned. CAUTEL separates three questions that most
-agent stacks blur together:
+---
 
-1. **May this action happen?** (authority → delegation → intent)
-2. **Did it happen inside the boundary?** (sandboxed execution plane)
-3. **Can we prove what happened?** (tamper-evident evidence DAG)
+> **NOTICE** — This repository is a **public showcase** of CAUTEL. The
+> software is proprietary, unlicensed for use, and is not distributed here.
+> All material is provided for evaluation and information only. See
+> [License](License).
 
 ## Repository map
 
-| Folder | What it contains |
+| Section | What it proves |
 |---|---|
-| [`docs/`](docs/) | High-level conceptual material — the front door |
-| [`architecture/`](architecture/) | Conceptual system design, diagrams, lifecycles (no code) |
-| [`specs/`](specs/) | Formal object specifications and governance invariants |
-| [`governance/`](governance/) | Constitutional rules, enforcement semantics, fail-closed behaviour |
-| [`validation/`](validation/) | Black-box validation methodology and result summaries |
-| [`roadmap/`](roadmap/) | Forward direction and planned extensions |
+| [`docs/`](docs/) | What CAUTEL is and why it exists — the front door |
+| [`docs/THESIS.md`](docs/THESIS.md) | The case for governed autonomy (thought leadership) |
+| [`architecture/`](architecture/) | The three planes, subsystems, and the intent→execution→evidence lifecycle |
+| [`specs/`](specs/) | Formal object definitions and governance invariants |
+| [`governance/`](governance/) | The Constitution, enforcement semantics, fail-closed doctrine |
+| [`validation/`](validation/) | Black-box methodology and result summaries |
+| [`docs/DEMO.md`](docs/DEMO.md) | See it in action — recorded demonstrations |
+| [`roadmap/`](roadmap/) | Federation model, replay engine, enterprise integrations |
 
-## At a glance
+## Proof of substance
 
-```mermaid
-flowchart LR
-    H[Human authority] -->|delegates| D[Delegation graph]
-    A[Agent intent] -->|authorisation check| D
-    D -->|approved intent| E[Sandboxed execution plane]
-    E -->|every action| V[Evidence DAG]
-    V -->|tamper check| C[Constitutional engine]
-    C -->|violation| X[fail closed]
-    C -->|compliant| R[result]
-```
+- **Formal, not hand-wavy.** The [`specs/`](specs/) define the exact objects —
+  AuthorityObject, delegation graph, evidence DAG, trajectory chain — with
+  RFC-2119 MUST invariants.
+- **Rules with teeth.** [`governance/CONSTITUTION.md`](governance/CONSTITUTION.md)
+  is the machine-enforced rule set; [`ENFORCEMENT_SEMANTICS.md`](governance/ENFORCEMENT_SEMANTICS.md)
+  shows evaluation is mechanical — no model judgement, no discretion.
+- **Validated, not asserted.** [`validation/`](validation/) describes the
+  hostile black-box matrix — tamper attempts, replay attacks, crash recovery —
+  and the pass standard: *refused and recorded, or provably unchanged.*
+- **Fail-closed as doctrine.** [`governance/FAIL_CLOSED.md`](governance/FAIL_CLOSED.md):
+  a false refusal costs availability; a false approval costs everything.
 
-## Status
+## See it in action
 
-- [x] Public documentation tree (this repository)
-- [x] Formal specifications of the core objects
-- [x] Governance rules and invariants
-- [x] Black-box validation methodology
-- [ ] Runtime release (proprietary)
-- [ ] Federation model (see [roadmap](roadmap/))
+[`docs/DEMO.md`](docs/DEMO.md) — two recorded demonstrations:
 
-## License
+1. **The Refusal** — an agent attempts an unauthorised action; CAUTEL refuses,
+   records the refusal, and proves the evidence chain remains intact.
+2. **A governed workload** — a day-trading agent operating under strict
+   constitutional risk rules: capped risk per trade, automatic brackets,
+   fail-closed filters, a full evidence journal, and a mandatory flatten
+   before close.
 
-This repository and its documentation are proprietary (see [License](License)).
-No runtime software is included.
+## Who this is for
+
+- **Enterprises** deploying autonomous agents and needing auditable control
+- **AI-platform teams** wanting enforcement rather than prompt-level policy
+- **Investors & partners** evaluating the governance layer of the agent economy
+- **Researchers** working on agent safety, delegation, and tamper-evidence
+
+## Talk to us
+
+This showcase is the beginning of a conversation, not the end.
+
+- **Demo request** — a guided walkthrough of the runtime in action
+- **Licensing & partnership** — enterprise deployment, integration, federation
+- **Feedback & research** — open an [issue](https://github.com/Cautelgovernancesystems-stack/Cautel-goverend-autonomy-substrate/issues)
+
+📧 `contact@cautel.example` *(placeholder — replace before publishing)*
+
+---
+
+*All rights reserved. No license to use the software is granted by this repository.*
