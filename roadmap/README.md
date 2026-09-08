@@ -1,44 +1,33 @@
 # Roadmap
 
-Where CAUTEL goes next. Statuses: ✅ shipped · 🚧 in progress · ⬜ planned.
+**Shipped — sealed, hostile-tested, receipts published.**
 
-## Governance extensions
+- Constitutional amendment procedure (signed, attested, recorded)
+- Tamper-evident evidence chain with root-to-head verification
+- Constructive sandbox boundary (no ambient authority)
+- Black-box hostile validation matrix — external round: 13 claims,
+  12 held, 1 found and fixed before close
+- Enterprise identity — OIDC-verified principals, task-scoped sessions
+- MCP gateway — every tool call through the enforcement chain
+- Evidence evaluator — publication rules R1–R5 (independence, scope,
+  isolation, counterexample blockers, n-at-the-claimed-level)
+- Confidential commitments — receipts that prove without leaking
+- Operator key vault — m-of-n dual control, hash-chained attempts
+- Layered runtime seals — per-layer integrity, hash-chained startup
+- Reason-code health surfaces — bounded, documented fault classes
+- Government-alignment mapping — NIST, UK DSIT, AU DTA, IMDA, OECD
 
-- ✅ Constitutional amendment procedure (signed, quorum, recorded)
-- ⬜ Time-boxed emergency overrides with mandatory post-hoc review
-- ⬜ **Federation model** — multiple roots, cross-organisation delegation
-- ⬜ Capability taxonomies per agent class (trading, ops, research)
+**Planned — the deliberate queue.**
 
-## Evidence & replay
-
-- ✅ Tamper-evident DAG with root-to-head verification
-- ⬜ **Replay engine improvements** — incremental replay, partial-range
+- Time-boxed emergency overrides with mandatory post-hoc review
+- Federation — multiple roots, cross-organisation delegation
+- Capability taxonomies per agent class
+- Replay engine improvements — incremental replay, partial-range
   verification, verifier-as-a-service
-- ⬜ Evidence export for third-party auditors (redacted summaries)
-
-## Execution plane
-
-- ✅ Constructive sandbox boundary (no ambient authority)
-- ⬜ Multi-plane deployments — one constitutional plane governing many
-  execution planes
-- ⬜ Heterogeneous executors (containers, WASM, remote)
-
-## Operations
-
-- ✅ Black-box hostile validation matrix
-- ⬜ Continuous validation in CI on every release candidate
-- ⬜ Public attestation registry for release candidates
-
-## Integrations
-
-- ⬜ Enterprise connectors: ticketing, SIEM, audit pipelines
-- ⬜ Agent-framework adapters (bring your own agent, keep CAUTEL's rules)
-
-## Milestones
-
-| Milestone | Target | Status |
-|---|---|---|
-| Public conceptual docs | now | ✅ |
-| Federation spec v0 | {date} | 🚧 |
-| Replay engine v2 | {date} | ⬜ |
-| Multi-plane GA | {date} | ⬜ |
+- Evidence export for third-party auditors (redacted summaries)
+- Multi-plane deployments — one constitutional plane, many execution planes
+- Heterogeneous executors (containers, WASM, remote)
+- Continuous validation in CI on every release candidate
+- Public attestation registry for release candidates
+- Enterprise connectors — ticketing, SIEM, audit pipelines
+- Agent-framework adapters (bring your own agent, keep the rules)
