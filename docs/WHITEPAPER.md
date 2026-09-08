@@ -61,7 +61,12 @@ authority; it does not create it.
 4. **Plane separation with sealed integrity.** Compilation of authority
    (governed, reviewed, signed) is separate from its execution
    (deterministic evaluation), and every enforcement layer is
-   independently sealed and verified before the plane boots.
+   independently sealed and verified before the plane boots — trajectory
+   and guardian first, with the startup itself hash-chained (per-layer
+   verification blocks, then `boot_complete` or `boot_refused`). The
+   operator keys sleep in a sealed vault under m-of-n dual control;
+   every release and every failed attempt is a receipt in the same
+   chain, so *who started the plane, when, and who tried* is provable.
 
 ## 4. The constitutional plane
 
