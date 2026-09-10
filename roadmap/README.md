@@ -12,7 +12,9 @@
 - Evidence evaluator — publication rules R1–R5 (independence, scope,
   isolation, counterexample blockers, n-at-the-claimed-level)
 - Confidential commitments — receipts that prove without leaking
-- Operator key vault — m-of-n dual control, hash-chained attempts
+- Operator key vault — n-of-n dual control + hardware-factor
+  device-bound unlock, hash-chained attempts
+  ([`docs/VAULT.md`](docs/VAULT.md))
 - Layered runtime seals — per-layer integrity, hash-chained startup
 - Reason-code health surfaces — bounded, documented fault classes
 - Government-alignment mapping — NIST, UK DSIT, AU DTA, IMDA, OECD

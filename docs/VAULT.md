@@ -1,71 +1,75 @@
-# Operator Key Vault
+# Operator Key Vault — who released the keys, and with what hardware
 
-The crown jewels never sleep in plaintext. The secrets ring and the
-operator signing key are wrapped (Fernet) under a master key that itself
+The crown jewels (secrets ring, operator signing key) never sleep in
+plaintext. Payloads are wrapped (Fernet) under a master key that itself
 never exists on disk: the master is XOR-split into n shares, each share
-wrapped under an individual operator credential (scrypt + per-share
-verifier). Unlocking requires `threshold` shares — **dual control by
-default: no single operator alone releases the startup keys.**
+wrapped under an individual operator credential (scrypt KDF + per-share
+verifier). The split is **n-of-n** — every credential is required; dual
+control by construction, not by configuration.
 
-## The receipt history — who released the keys, when
+## v2: the second factor lives in hardware
 
-Every attempt is hash-chained in the tamper chain, **including failures**:
+The master is additionally XOR-folded with a **device factor** recoverable
+only through an unexportable device key (an ECCP256 keypair generated
+on-device, e.g. a YubiKey PIV slot). Credentials without the device, or
+the device without the credentials, unlock nothing.
 
-- `vault_sealed` — when the vault was sealed, with share count, threshold,
-  and payload keys.
-- `vault_released` — which share indices unlocked it, and when. This is
-  the answer to *"who started the plane, at what time."*
-- `vault_attempt` — every failed attempt, recorded **without** the
-  credential that was tried. Brute force leaves evidence, not access.
-- `vault_tampered` — a tampered store or a swapped verifier, refused.
+Protocol, replay-proof by construction:
 
-Five failed attempts lock the vault for five minutes (`vault_cooldown`),
-and the lockout itself is recorded.
+- **Seal** — an ephemeral keypair performs ECDH against the enrolled
+  device public key; the shared secret (HKDF, salted with the vault id)
+  wraps the device factor. The device private key never leaves the
+  hardware.
+- **Enrollment record** — the device signs the enrollment blob (ephemeral
+  pub + vault id + device pub + serial). The stored device block is
+  device-authenticated: an attacker who rewrites the store cannot
+  substitute an ephemeral key and extract the factor without forging a
+  signature under the device key.
+- **Unlock** — the vault issues a fresh 32-byte challenge; the device
+  signs it (ECDSA/SHA-256, domain-separated); the vault verifies against
+  the enrolled public key, then the device performs the ECDH unwrap and
+  the master is reconstructed. A recorded unlock can never be replayed:
+  the vault never reuses a challenge.
 
-```bash
-# seal (2-of-2)
-python3 - <<'EOF'
-import sys; sys.path.insert(0, ".")
-from vault import vault as V
-V.seal_vault(["operator-one", "operator-two"],
-             {"secrets_ring": <ring>, "operator_key": <key>},
-             threshold=2)
-EOF
+## Refusal vocabulary (bounded, recorded, never the credential)
 
-# unlock (both operators present)
-python3 - <<'EOF'
-import sys; sys.path.insert(0, ".")
-from vault import vault as V
-payloads, why = V.unlock_vault({0: "operator-one", 1: "operator-two"})
-print(why, sorted(payloads) if payloads else "")
-EOF
+Every attempt — success and failure — is hash-chained in the tamper
+chain, without ever recording a credential, signature, or response:
 
-# query the release history from the chain
-tail -c 1M logs/cautel_audit.chain | grep '"node": "vault"'
-```
+- `vault_sealed` / `vault_released` — who sealed the keys, which shares
+  and which device released them, and when. This is the answer to *"who
+  started the plane, at what time."*
+- `vault_attempt` / `vault_device_refused` — every failure, with a
+  bounded reason code (serial mismatch, key mismatch, signature rejected,
+  enrollment rejected, factor rejected). Brute force leaves evidence, not
+  access.
+- `vault_tampered` — a tampered store, a swapped verifier, or an unknown
+  schema, refused.
+- Five failed attempts lock the vault for five minutes (`vault_cooldown`),
+  recorded on the chain. Device refusals count exactly like wrong
+  credentials.
 
-## Boot gate
+## Hardening summary
 
-```bash
-export CAUTEL_REQUIRE_VAULT=1   # the plane refuses to boot while locked
-```
+- Store hash-sealed; tamper or a replaced verifier fails closed.
+- Device swap refused: serial, public key, and the device-signed
+  enrollment record must all match.
+- Identity confusion refused: the factor wrap is salted with the vault
+  id, so a device block spliced from another vault (even one validly
+  signed by the same device) cannot unwrap here.
+- Downgrade fails: a v2 store rewritten as v1 yields garbage, not
+  payloads.
+- Simulated devices can never masquerade as hardware: simulated sealing
+  requires an explicit flag and every receipt records the kind.
+- No device present → probe fails closed; nothing is written.
+- With the boot gate on, a locked vault refuses plane startup — the gate
+  sits ahead of the layered runtime seals.
 
-The gate sits **ahead** of the layered seals: no key release, no startup —
-and both events are on the same chain.
+## Validation
 
-## Hardening
-
-- the store is hash-sealed: tamper or a replaced verifier fails the seal
-  and restricts the plane (`vault:tampered`);
-- credentials are never stored, never recorded, and used only to derive
-  keys;
-- attempts throttle via KDF cost + the cooldown window.
-
-## Roadmap
-
-Hardware-factor shares (an unexportable device key that signs a fresh
-challenge per unlock) are the planned v2 — passphrase + physical key,
-with neither half sufficient alone.
-
-Battery: `python3 vault/test/vault.py` — 13 checks (threshold, tamper,
-verifier-swap, cooldown, boot gate, recovery).
+- 49/49 automated checks (13 core vault, 36 hardware-factor adversarial:
+  replay, serial clone, key swap, enrollment forgery, store downgrade,
+  cross-vault splice, brute-force cooldown, chain hygiene).
+- Included in the full-plane sweep (22 suites, 480 checks, green).
+- External black-box round: 13 claims against a frozen build — 12 held
+  fail-closed, 1 real finding fixed before close, re-run clean.
