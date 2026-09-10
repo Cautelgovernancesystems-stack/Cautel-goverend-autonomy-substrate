@@ -26,9 +26,11 @@
 - Capability taxonomies per agent class
 - Replay engine improvements — incremental replay, partial-range
   verification, verifier-as-a-service
-- Case law / settled judicial interpretation — enforce authoritatively
-  encoded rulings when supplied by the responsible institution (never
-  formalised by the substrate itself)
+- Case law / settled judicial interpretation — MECHANISM DEMONSTRATED:
+  settled-interpretation rule sets bind identically to statutory ones
+  (provenance rides every receipt); the remaining dependency is the
+  institutional authorisation to encode them (never formalised by the
+  substrate itself)
 - Population-scale policy impact modelling — adoption integration
   (scenario-level simulation shipped)
 - Evidence export for third-party auditors (redacted summaries)
