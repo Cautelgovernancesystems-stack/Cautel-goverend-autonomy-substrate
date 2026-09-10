@@ -26,6 +26,9 @@
 - Capability taxonomies per agent class
 - Replay engine improvements — incremental replay, partial-range
   verification, verifier-as-a-service
+- Case law / settled judicial interpretation — enforce authoritatively
+  encoded rulings when supplied by the responsible institution (never
+  formalised by the substrate itself)
 - Evidence export for third-party auditors (redacted summaries)
 - Multi-plane deployments — one constitutional plane, many execution planes
 - Heterogeneous executors (containers, WASM, remote)
