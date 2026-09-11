@@ -70,7 +70,7 @@ chain, without ever recording a credential, signature, or response:
 - 53/53 automated checks (18 core vault, 35 hardware-factor adversarial:
   replay, serial clone, key swap, enrollment forgery, store downgrade,
   cross-vault splice, brute-force cooldown, chain hygiene).
-- Included in the full-plane sweep (24 suites, 345 checks + the
+- Included in the full-plane sweep (28 suites, 425 checks + the
   1,000-command isolation load drill, all green).
 - External black-box round: 13 claims against a frozen build — 12 held
   fail-closed, 1 real finding fixed before close, re-run clean.
