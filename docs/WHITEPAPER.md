@@ -44,8 +44,11 @@ Four assumptions, stated formally:
    genuinely insufficient.
 
 What the model explicitly does *not* protect against: an adversary who
-holds the operator key. Cryptography protects the representation of
-authority; it does not create it.
+holds the operator key — which includes root, and any same-UID process
+(the key is owner-readable) — and an adversary who controls every trust
+anchor at once (the seal, the offline airgap media, and every replicated
+state node). Cryptography protects the representation of authority; it
+does not create it. The precise boundary is stated in `docs/FAQ.md`.
 
 ## 3. Design principles
 
@@ -119,11 +122,17 @@ invariants rather than shipping mid-round. The external round ran 13
 claims across authorization, budget, revocation, finalization, evidence,
 and identity surfaces: **12 held fail-closed, 1 real finding (unsigned
 revert) found and fixed before the round closed, re-run clean.** Internal
-batteries: 444 checks across 21 suites, all green. See `validation/`.
+batteries: 425 checks across 28 suites, plus the 1,000-command V18
+isolation load drill and the CLI anchors (constitution self-test, seal
+verify, airgap check) — all green. See `validation/` and
+`docs/FAQ.md`.
 
 ## 9. Limitations & future work
 
 Federation of authority across organizations (portable artifacts, roots of
-trust) is designed but not yet standardized; replay forensics at scale;
-and the hardware-factor vault (device-bound unlock) is specified but not
-yet shipped. See `roadmap/`.
+trust) is designed but not yet standardized; replay forensics at scale
+remain. The hardware-factor vault (device-bound unlock) IS shipped (v2,
+n-of-n shares + device factor, interactive unlock only — there is no
+unattended recovery, and that trade-off is deliberate; see
+`docs/VAULT.md` and `docs/FAQ.md`). Enterprise integrations (brokers,
+payments, storage) are roadmap, not operational. See `roadmap/`.

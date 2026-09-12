@@ -54,7 +54,7 @@ can satisfy it).
 | 8.19 installation of software on operational systems | Seal + attestation gate installs; change = governed transaction | M |
 | 8.24 use of cryptography | HMAC-SHA256 throughout; signed attestations; hash-chained evidence ledger | M |
 | 8.25 secure development lifecycle | Batteries + hardening drills run before every release; hostile-test discipline is mandatory | M |
-| 8.29 security testing in development and acceptance | The full sweep (trajectory 22, delegation 24/30/11/22/21/15/46/21, guardian 27, semantic 17, attestation 8, OIDC 31, MCP 18, drills 46) | M |
+| 8.29 security testing in development and acceptance | The full sweep: 28 suites, 425 adversarial checks + the 1,000-command isolation drill — green (2026-09-12); see `docs/FAQ.md` and `validation/` | M |
 | 8.31–8.32 development/test separation + change management | Governed commit wrapper: signed + verified transactions, global evidence sealed per change | M |
 | 8.34 protection of information systems during audit testing | Evidence chain + replay let an auditor verify without touching the live plane | M |
 | 8.1, 8.7, 8.9, 8.11, 8.13, 8.18, 8.20–8.23, 8.26–8.28, 8.30, 8.33 | Partially satisfiable at the substrate level; completed by deployment/organisational procedure | P |

@@ -48,7 +48,16 @@ which budget, provable after the fact.
 
 External black-box attack round (round-3B): 13 claims against a frozen
 build, 12 held fail-closed, 1 real finding fixed before the round closed,
-re-run clean. Full battery sweep: trajectory 22, delegation
-24/30/11/22/21/15/46/21, guardian 27, semantic gate 17, attestation 8,
-OIDC identity 31, MCP gateway 23, evidence provenance 25, commitments 9,
-hardening drills 46 — all green.
+re-run clean. That round predates the three-guard fleet, the
+hardware-factor vault, and the later hardening (loopback endpoint auth,
+per-block chain MACs, raft CAS, the executioner kill-chain rework, the
+clock-drift tripwire) — those are covered by internal adversarial
+batteries, and the separation is labeled, not hidden (see `docs/FAQ.md`).
+
+Current full sweep (2026-09-12): **28 suites, 425 adversarial checks** —
+enforcement race/TOCTOU, endpoint auth (24/24), chain block-auth (12/12),
+raft store CAS (9/9), executioner kill chain (19/19), guardian cone
+(32/32), evidence-watch (30/30), vault (18/18 + hardware 35/35),
+trajectory hardening (22/22), MCP gateway (32/32), OIDC identity (31/31),
+provenance (33/33), commitments (9/9), plus the 1,000-command V18
+isolation drill — all green.

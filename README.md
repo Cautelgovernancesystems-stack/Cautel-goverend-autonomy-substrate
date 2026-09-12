@@ -8,7 +8,7 @@ authority. Every action answers three questions before it happens:
 
 1. **May it?** — an unbroken, signed delegation path from a human root
 2. **Does it stay inside?** — execution within a constructive sandbox boundary
-3. **Can we prove it?** — an append-only, tamper-evident evidence DAG
+3. **Can we prove it?** — an append-only, tamper-evident evidence chain
 
 And the doctrine that makes it different: **when in doubt, refuse.**
 If any rule fails — or compliance cannot be *proven* — CAUTEL fails closed.
@@ -20,11 +20,57 @@ If any rule fails — or compliance cannot be *proven* — CAUTEL fails closed.
 > All material is provided for evaluation and information only. See
 > [License](License).
 
+## The hard questions, answered on the front page
+
+Evaluators ask sharp questions. The direct answers — threat model,
+recovery, rollback, external guarantees, validation scope, and the
+operational record — are in **[`docs/FAQ.md`](docs/FAQ.md)**, not buried
+in folders. The short version:
+
+- **What is protected?** Application-level attackers, including code
+  inside the plane's own sandboxes. **Not** root, and **not** a same-UID
+  process (the operator key is owner-readable) — both excluded by
+  explicit documentation.
+- **Unattended recovery?** No. The key vault unlocks interactively
+  (n-of-n shares + hardware factor). Resilience-for-control is a
+  deliberate trade-off, stated as such.
+- **Rollback protection?** Detection, not magic: the seal-pinned
+  append-only ledger, the offline airgap anchor, the prefix-checked
+  decision log, and replicated authority state with digest agreement make
+  restoring an older snapshot fail closed.
+- **Exactly-once into external systems?** Strict internally; at-most-once
+  plus a stable `command_id` idempotency key externally. No distributed
+  transactions — stated plainly.
+- **External validation?** The 13-claim black-box round is real and its
+  receipts are published — and it predates several current defenses.
+  Validation is self-authored; there is no third-party certification.
+- **Operational record?** Single-operator development plane; hours-to-a-day
+  continuous runs; no production integrations; no outside operators yet.
+
+## Status, stated plainly
+
+| Claim | Status |
+|---|---|
+| Enforcement chain (sign → authorize → sequence → exactly-once → admit → state-bound allow) | ✅ shipped, battery-tested |
+| Tamper-evident ledger with operator-keyed block auth beyond the seal pin | ✅ shipped, battery-tested |
+| Keyed loopback endpoint auth (ledger pull, metrics, verdict, raft RPCs) | ✅ shipped, battery-tested |
+| Exactly-once execution, replicated CAS over raft | ✅ shipped, battery-tested |
+| Operator key vault — n-of-n shares + hardware factor | ✅ shipped (v2), battery-tested; interactive unlock only |
+| Three-guard fleet (fast ring / full ring / airgap) with mutual liveness | ✅ shipped, battery-tested |
+| Evidence evaluator with independence-checked publication rules (R1–R5) | ✅ shipped, battery-tested |
+| External black-box round | ✅ 13 claims, 12 held fail-closed, 1 fixed before close — receipts published |
+| **Current full sweep** | ✅ **28 suites, 425 adversarial checks + 1,000-command isolation drill — green (2026-09-12)** |
+| Enterprise integrations (brokers, payments, storage) | ⏳ roadmap — none operational today |
+| Federation of authority across organizations | ⏳ designed, not standardized |
+| Third-party certification / independent audit | ❌ none — not claimed |
+| Outside operators | ❌ none yet — not claimed |
+
 ## Repository map
 
 | Section | What it proves |
 |---|---|
 | [`docs/`](docs/) | What CAUTEL is and why it exists — the front door |
+| [`docs/FAQ.md`](docs/FAQ.md) | **The hard questions, answered directly** |
 | [`docs/THESIS.md`](docs/THESIS.md) | The case for governed autonomy (thought leadership) |
 | [`architecture/`](architecture/) | The three planes, subsystems, and the intent→execution→evidence lifecycle |
 | [`specs/`](specs/) | Formal object definitions and governance invariants |
@@ -44,6 +90,8 @@ If any rule fails — or compliance cannot be *proven* — CAUTEL fails closed.
 - **Validated, not asserted.** [`validation/`](validation/) describes the
   hostile black-box matrix — tamper attempts, replay attacks, crash recovery —
   and the pass standard: *refused and recorded, or provably unchanged.*
+  The external round held 12 of 13 claims fail-closed; the one finding was
+  fixed before the round closed, re-run clean.
 - **Fail-closed as doctrine.** [`governance/FAIL_CLOSED.md`](governance/FAIL_CLOSED.md):
   a false refusal costs availability; a false approval costs everything.
 

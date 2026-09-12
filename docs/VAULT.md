@@ -74,3 +74,17 @@ chain, without ever recording a credential, signature, or response:
   1,000-command isolation load drill, all green).
 - External black-box round: 13 claims against a frozen build — 12 held
   fail-closed, 1 real finding fixed before close, re-run clean.
+
+## Recovery posture (stated plainly)
+
+Unlock is **interactive only** — there is no unattended recovery.
+
+- `unlock_vault(credentials, device)` requires the n-of-n shares AND the
+  hardware factor; the boot gate refuses to serve while locked.
+- No systemd unit auto-unlocks; no recovery credential set exists on disk.
+- After an attack-triggered restart or lockdown, an operator must
+  re-unlock. That is a deliberate resilience-for-control trade-off: the
+  plane is cold-start-deny by design.
+- High-availability workloads that need unattended restart would require
+  a new recovery-credential design (for example, recovery shares sealed
+  to a TPM) — designed, not built, and not claimed.

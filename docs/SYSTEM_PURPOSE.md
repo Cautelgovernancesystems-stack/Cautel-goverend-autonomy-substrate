@@ -19,9 +19,24 @@ CAUTEL assumes:
 2. The operator may be **absent** (long-running autonomous operation).
 3. The evidence may be **attacked** (log tampering, replay, reordering).
 4. The environment may be **hostile** (untrusted inputs, malicious tools).
+5. An **application-level attacker** may read and modify plane files on the
+   host, and may hold loopback network reach — but **does not hold the
+   operator key**. Keyed integrity (operator HMACs on the tamper chain,
+   raft RPCs, endpoint requests, and node-state responses) is what fails
+   keyless forgery closed.
 
-It does **not** assume the hardware root or the human root authority are
-compromised.
+It does **not** assume protection against:
+
+- the hardware root of trust being compromised;
+- **root** or a **same-UID** process on the host — both can read the
+  operator key (0600, owner-readable) and therefore forge the MACs; and
+- an attacker who controls *all* trust anchors at once (the seal, the
+  offline airgap media, and every replicated state node together).
+
+Cryptography protects the representation of authority; it does not create
+it. The precise wording of the boundary — what is covered, what is not,
+and where the enforcer runs relative to the attacker — is in
+[`FAQ.md`](FAQ.md).
 
 ## The design answer
 
