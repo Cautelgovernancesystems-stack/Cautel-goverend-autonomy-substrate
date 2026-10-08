@@ -32,20 +32,28 @@ own sandboxes — are in scope. Root and same-UID attackers are not.**
 
 ## 2. Can CAUTEL recover unattended after a restart?
 
-**No — and that is deliberate.**
+**Yes — two auto-unlock paths now exist, both gated by the boot gate.**
 
-Unlocking the operator key vault requires the n-of-n credential shares
-**and** the hardware-bound device factor, supplied interactively by an
-operator. The boot gate refuses to serve while the vault is locked
-(proven by batteries H27/H28 and V10–V12: the refusal, and the clean boot
-after unlock). No systemd unit auto-unlocks; no recovery credential set
-exists on disk.
+- **TPM-sealed operational unlock** (the cold-path answer): the vault
+  master is sealed to the platform TPM under a PCR policy over the
+  measured boot chain. Power returns, the TPM measures the boot, and the
+  key is released only if nothing was tampered — the plane resumes
+  enforcing with zero human touch; a tampered boot chain fails closed.
+  (On machines whose firmware refuses policy unseal — observed on Intel
+  PTT with a sha1-only PCR bank — the battery reports FIRMWARE-LIMITED
+  rather than pretending.)
+- **On-disk ops key** (the cold-RESUME fallback, works everywhere): the
+  master in an operator-keyed sealed 0600 envelope, bound to the current
+  vault store seal. It survives power loss; it does **not** survive a
+  stolen disk — that difference is stated, not hidden.
 
-The trade-off is resilience-for-control: the plane starts cold-deny, and
-an operator re-unlocks after any restart. High-availability workloads
-that need unattended restart would require a new recovery-credential
-design (for example, recovery shares sealed to a TPM) — designed, but not
-built, and not claimed.
+The n-of-n shares + physical hardware factor remain the administrative
+root; the auto paths are operational-only and are never usable by
+administrative flows (rotate, reseal, revoke). Torn tails from a
+mid-write power cut are quarantined verbatim and receipted at startup.
+
+The trade-off is now tunable: cold-start-deny with a human, or
+unattended resume with the boundaries above — the operator chooses.
 
 ## 3. What stops rollback of business state (restore an older snapshot)?
 

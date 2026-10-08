@@ -77,14 +77,17 @@ chain, without ever recording a credential, signature, or response:
 
 ## Recovery posture (stated plainly)
 
-Unlock is **interactive only** — there is no unattended recovery.
+Two unattended auto-unlock paths, both gated by the boot gate:
 
-- `unlock_vault(credentials, device)` requires the n-of-n shares AND the
-  hardware factor; the boot gate refuses to serve while locked.
-- No systemd unit auto-unlocks; no recovery credential set exists on disk.
-- After an attack-triggered restart or lockdown, an operator must
-  re-unlock. That is a deliberate resilience-for-control trade-off: the
-  plane is cold-start-deny by design.
-- High-availability workloads that need unattended restart would require
-  a new recovery-credential design (for example, recovery shares sealed
-  to a TPM) — designed, not built, and not claimed.
+- **TPM-sealed operational unlock** — the master sealed to the TPM under
+  a PCR policy over the measured boot chain; released only on a
+  measured-clean boot (cold-path defense). Battery: 8 checks + 2
+  documented FIRMWARE-LIMITED skips on Intel PTT sha1-only machines.
+- **On-disk ops key** — operator-keyed sealed 0600 envelope bound to the
+  current store seal (cold-RESUME, works everywhere; does not survive a
+  stolen disk). Battery: 9/9.
+
+Interactive unlock (`unlock_vault(credentials, device)`, n-of-n shares +
+hardware factor) remains the administrative root; the auto paths are
+operational-only. Torn tails from a mid-write power cut are quarantined
+verbatim and receipted at startup.

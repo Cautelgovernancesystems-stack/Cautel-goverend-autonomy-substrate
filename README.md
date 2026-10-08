@@ -31,9 +31,9 @@ in folders. The short version:
   inside the plane's own sandboxes. **Not** root, and **not** a same-UID
   process (the operator key is owner-readable) — both excluded by
   explicit documentation.
-- **Unattended recovery?** No. The key vault unlocks interactively
-  (n-of-n shares + hardware factor). Resilience-for-control is a
-  deliberate trade-off, stated as such.
+- **Unattended recovery?** Yes — TPM-sealed operational unlock
+  (machine as the device factor, tampered-boot fails closed) or an
+  on-disk ops key fallback (cold-resume, not cold-path — stated).
 - **Rollback protection?** Detection, not magic: the seal-pinned
   append-only ledger, the offline airgap anchor, the prefix-checked
   decision log, and replicated authority state with digest agreement make
@@ -55,7 +55,8 @@ in folders. The short version:
 | Tamper-evident ledger with operator-keyed block auth beyond the seal pin | ✅ shipped, battery-tested |
 | Keyed loopback endpoint auth (ledger pull, metrics, verdict, raft RPCs) | ✅ shipped, battery-tested |
 | Exactly-once execution, replicated CAS over raft | ✅ shipped, battery-tested |
-| Operator key vault — n-of-n shares + hardware factor | ✅ shipped (v2), battery-tested; interactive unlock only |
+| Operator key vault — n-of-n shares + hardware factor | ✅ shipped (v2), battery-tested |
+| Unattended power-loss recovery — TPM-sealed or on-disk ops key | ✅ shipped, battery-tested; TPM path firmware-limited on some Intel fTPMs (documented) |
 | Three-guard fleet (fast ring / full ring / airgap) with mutual liveness | ✅ shipped, battery-tested |
 | Evidence evaluator with independence-checked publication rules (R1–R5) | ✅ shipped, battery-tested |
 | External black-box round | ✅ 13 claims, 12 held fail-closed, 1 fixed before close — receipts published |
