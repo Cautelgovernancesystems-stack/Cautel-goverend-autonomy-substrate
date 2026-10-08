@@ -154,8 +154,10 @@ Straight answers, no rounding up:
 | Production-ready external integrations | **None.** The only integration is the local Ollama inference backend. No broker, payment, or third-party API integration exists in the codebase |
 | Outside operators | **None.** No one outside the development environment has operated CAUTEL end-to-end |
 
-**Current verification totals** (2026-09-12): 28 battery suites, 425
-adversarial checks, plus the 1,000-command V18 isolation load drill and
+**Current verification totals** (2026-09-12): 33 battery suites, 461
+checks — including machine-searched property-based (7,642 random ops +
+10,000 garbage, every prefix) and differential (fold-vs-raft, SQLite-vs-model,
+evaluator determinism) batteries, plus the 1,000-command V18 isolation load drill and
 the CLI anchors (constitution self-test, seal verify, airgap check) — all
 green. The external round remains: 13 claims, 12 held fail-closed, 1
 found and fixed before close, re-run clean.

@@ -60,7 +60,7 @@ in folders. The short version:
 | Three-guard fleet (fast ring / full ring / airgap) with mutual liveness | ✅ shipped, battery-tested |
 | Evidence evaluator with independence-checked publication rules (R1–R5) | ✅ shipped, battery-tested |
 | External black-box round | ✅ 13 claims, 12 held fail-closed, 1 fixed before close — receipts published |
-| **Current full sweep** | ✅ **28 suites, 425 adversarial checks + 1,000-command isolation drill — green (2026-09-12)** |
+| **Current full sweep** | ✅ **33 suites, 461 checks — including machine-searched property-based + differential batteries + 1,000-command isolation drill — green (2026-10-08)** |
 | Enterprise integrations (brokers, payments, storage) | ⏳ roadmap — none operational today |
 | Federation of authority across organizations | ⏳ designed, not standardized |
 | Third-party certification / independent audit | ❌ none — not claimed |
