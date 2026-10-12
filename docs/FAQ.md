@@ -154,11 +154,13 @@ Straight answers, no rounding up:
 | Production-ready external integrations | **None.** The only integration is the local Ollama inference backend. No broker, payment, or third-party API integration exists in the codebase |
 | Outside operators | **None.** No one outside the development environment has operated CAUTEL end-to-end |
 
-**Current verification totals** (2026-09-12): 41 battery suites, 524
+**Current verification totals** (2026-09-12): 45 battery suites, 554
 checks — SMT-solver proofs (Z3: default-deny/signature/budget/revocation
-all UNSAT), machine-searched property-based + differential, wire-level
-partition drill (live 3-node raft cuts), crypto known-answer vectors,
-raw-bytes wire fuzz, deep graph hunt, depth/type bombs, empty-set audit, plus the 1,000-command V18 isolation load drill and
+all UNSAT), interpreter pinning + poisoned-builtins, constant-time
+audit, Ouroboros + kill -9 drills, machine-searched property-based +
+differential, wire-level partition drill (live 3-node raft cuts), crypto
+known-answer vectors, raw-bytes wire fuzz, deep graph hunt, depth/type
+bombs, empty-set audit, plus the 1,000-command V18 isolation load drill and
 the CLI anchors (constitution self-test, seal verify, airgap check) — all
 green. The external round remains: 13 claims, 12 held fail-closed, 1
 found and fixed before close, re-run clean.
