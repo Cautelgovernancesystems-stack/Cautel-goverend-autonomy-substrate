@@ -154,8 +154,11 @@ Straight answers, no rounding up:
 | Production-ready external integrations | **None.** The only integration is the local Ollama inference backend. No broker, payment, or third-party API integration exists in the codebase |
 | Outside operators | **None.** No one outside the development environment has operated CAUTEL end-to-end |
 
-**Current verification totals** (2026-10-18): 53 battery suites, 629
-checks — autonomous-corporation demo (a governed day at Nexus: real
+**Current verification totals** (2026-10-20): 54 battery suites, 640
+checks — sealed audit-window tool (pick a from/to date-time and CAUTEL
+writes a self-contained, operator-HMAC-sealed evidence package with
+boundary state digests that verifies against the live chain) +
+autonomous-corporation demo (a governed day at Nexus: real
 engine, signed authority lines, 9 allowed, 5 denied, every event
 receipted — see `CAUTEL_DUE_DILIGENCE/`) + sovereign governance capture
 drill (a majority of department

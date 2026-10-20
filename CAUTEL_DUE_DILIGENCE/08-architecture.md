@@ -53,6 +53,11 @@ node denies it at apply.
 - Governed change control: policy edits require re-attestation and a
   new seal; commits pass a full-sweep gate (any suite regression rejects
   the commit).
+- Sealed audit windows (`bin/audit_window.py`): choose a from/to
+  date-time and CAUTEL writes a self-contained evidence package — chain
+  slice, decisions, boundary state digests at both ends, operator-HMAC
+  token over the manifest — that verifies against the live chain
+  without trusting its author.
 
 ## The boundaries (same list in every artifact)
 
