@@ -35,6 +35,8 @@ current battery wall; every row is a real engine output.
 | Poisoned interpreter / builtins | detected | interpreter pin trips | yes | PASS |
 | Supply-chain tamper between builds | detected | two builds byte-identical across 4,606 files | yes | PASS |
 | Kill -9 at every lifecycle step | recover | 13/13, state + chain intact | yes | PASS |
+| Revocation race on a lagging replica | stale spend denied on EVERY replica | denied (`revoked_authority`); identical pruned digests | yes | PASS |
+| Policy conflicts (wildcards, inverted windows, dual authority, contradictory requests) | fail closed | rejected at load / denied at apply with structured codes | yes | PASS |
 | Network partition / split brain | fail closed, converge after heal | 12/12 | yes | PASS |
 
 ## Failures found → patched → retested (this hardening arc, all on record)

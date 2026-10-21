@@ -1,31 +1,39 @@
-# CAUTEL — the operating system for autonomous organisations
+# CAUTEL — The Constitutional Runtime for Governed Autonomy
 
-**Cautel Governance Systems** · constitutional runtime for governed autonomy
+**Cautel Governance Systems**
 
-CAUTEL lets AI agents operate like **employees inside a governed
-corporation** instead of acting as uncontrolled software. Every agent
-framework today is `Think → Act`. CAUTEL changes that to:
+> AI agents can decide what they want to do. They should not be able
+> to grant themselves the authority to do it.
+
+CAUTEL is a governance runtime for autonomous systems. It places
+explicit authority enforcement between agent intent and execution,
+with bounded delegation, mechanically evaluated policy, and mandatory
+evidence for every decision.
+
+Most agent architectures centre on a think-and-act loop. CAUTEL
+introduces a governed execution lifecycle:
 
 ```
 Think → Request Authority → Governance Review → Evidence Generated → Execute
 ```
 
-The six-line constitutional model:
+## The constitutional model
 
-1. **Authority cannot appear** — it must be granted.
-2. **Authority can be delegated** — only within its grant.
-3. **Delegation is constrained** — scope and budget, checked at every step.
-4. **Execution is bounded** — denied before it happens when out of bounds.
-5. **Evidence is mandatory** — every allow *and* every deny is receipted.
+1. **Authority cannot appear.** It must be granted.
+2. **Authority can be delegated.** Only within the original grant.
+3. **Delegation is constrained.** Scope and budget are checked at every step.
+4. **Execution is bounded.** Out-of-bounds actions are denied before execution.
+5. **Evidence is mandatory.** Every allow and every deny produces a receipt.
 6. **When proof is impossible, CAUTEL fails closed.**
 
-Workflow engines ask *what should happen next*. CAUTEL asks *who has
-authority to make that happen*. LangGraph, CrewAI and AutoGen are
-orchestration systems; CAUTEL is a **constitutional runtime** — a
-different layer of the stack:
+Workflow engines determine *what should happen next*. CAUTEL determines
+*whether the actor has authority to make it happen*. LangGraph, CrewAI
+and AutoGen address agent orchestration; CAUTEL targets a different
+architectural responsibility: enforcing delegated authority at the
+execution boundary.
 
 > Cloud gave us compute. Kubernetes gave us orchestration.
-> **CAUTEL gives autonomous systems governance.**
+> CAUTEL aims to provide governance for autonomous systems.
 
 | | Human world | Autonomous world |
 |---|---|---|
@@ -35,18 +43,50 @@ different layer of the stack:
 | Budget | Department budget | Delegation budget |
 | Audit | Accounting records | Tamper-evident evidence chain |
 
-**Current state: 53 suites / 629 checks, 0 failures** — including the
-sovereign governance-capture drill, Byzantine-coalition drill, wire-level
-partition testing, and the governed-corporation demonstration. The full
-evidence is packaged in **[`CAUTEL_DUE_DILIGENCE/`](CAUTEL_DUE_DILIGENCE/README.md)** —
-readable in 15 minutes.
+## See it work
+
+A governed day at **Nexus**, a demonstration company run entirely under
+the enforcement engine — operator → departments → agents, real signed
+authority lines, real budgets. The day ends **9 allowed, 5 denied,
+every event receipted**: the overspend dies (`budget_exhausted`), the
+out-of-scope hire dies (`scope_violation`), the terminated agent's
+authority is dead (`revoked_authority`), the compromised department
+cannot mint authority (`unauthorized`).
+
+Full transcript and what each outcome proves:
+[`CAUTEL_DUE_DILIGENCE/07-autonomous-corporation-demo.md`](CAUTEL_DUE_DILIGENCE/07-autonomous-corporation-demo.md)
+
+The standing attack surface — the constitutional claims we believe hold,
+each mapped to its battery — is published as a challenge:
+[`CHALLENGE.md`](CHALLENGE.md). Weaknesses found are numbered, fixed and
+retested in [`FINDINGS.md`](FINDINGS.md).
+
+## Project status
+
+- **Latest recorded validation:** 57 suites, 669 checks, zero failures
+  (2026-10-21). Scope: adversarial governance tests, recovery and
+  partition testing, evidence integrity, and formal property checks —
+  see the [due-diligence package](CAUTEL_DUE_DILIGENCE/README.md).
+- **External evaluation:** a 13-claim black-box round has been
+  completed; 12 claims held fail-closed, one finding was fixed before
+  the round closed.
+- **Production integrations:** none operational.
+- **Independent certification:** none claimed.
 
 ---
 
-> **NOTICE** — This repository is a **public showcase** of CAUTEL. The
-> software is proprietary, unlicensed for use, and is not distributed here.
-> All material is provided for evaluation and information only. See
-> [License](License).
+> **NOTICE** — Repository status: public documentation and evaluation
+> materials only. The CAUTEL implementation is proprietary and is not
+> included in this repository. No licence to use, modify, or
+> redistribute the software is granted. See [License](License).
+
+## Start here
+
+- **[FAQ](docs/FAQ.md)** — threat model, recovery, rollback, guarantees
+- **[Due-diligence package](CAUTEL_DUE_DILIGENCE/README.md)** — the 15-minute proof
+- **[Claim-to-evidence matrix](docs/CLAIM_TO_EVIDENCE.md)** — every claim, its test, its limitation
+- **[The challenge](CHALLENGE.md)** — have a crack
+- **[Findings](FINDINGS.md)** — weaknesses hunted, numbered, fixed
 
 ## The hard questions, answered on the front page
 
@@ -88,7 +128,7 @@ in folders. The short version:
 | Three-guard fleet (fast ring / full ring / airgap) with mutual liveness | ✅ shipped, battery-tested |
 | Evidence evaluator with independence-checked publication rules (R1–R5) | ✅ shipped, battery-tested |
 | External black-box round | ✅ 13 claims, 12 held fail-closed, 1 fixed before close — receipts published |
-| **Current full sweep** | ✅ **55 suites, 651 checks — cross-organisation federation (signed authority artifacts: export, verify against published roots, operator-mediated admission, propagated revocation, conservation across the boundary) + sealed audit-window tool (choose a from/to date-time, get a self-verifying evidence package with operator-HMAC token + boundary state digests) + autonomous-corporation demo (a governed day at Nexus: 9 allowed, 5 denied, every event receipted) + sovereign governance capture drill (majority departments + 40% agents + n−1 operator credentials: escalation, override and amendment attempts all fail closed) + economic decoupling battery (zero fees/gas/prices/stakes/tokens/markets in the enforcement path), game-theoretic adversary profiles + Byzantine-coalition drill, reproducible byte-identical builds, enforced pre-commit gate + flake harness, dependency SHA-256 locking + pip-audit, seed-replayable consensus, SMT-solver proofs (Z3), interpreter pinning + poisoned-builtins, constant-time audit, Ouroboros + kill -9 drills, mock-host fail-closed, property-based + differential search, wire-level partition drill (Jepsen-class), crypto known-answer vectors, raw-bytes wire fuzz, deep graph hunt, depth/type bombs + 1,000-command isolation drill — green (2026-10-21)** |
+| **Current full sweep** | ✅ **57 suites, 669 checks — revocation-propagation timing (a lagging replica applies the same ordered log and converges to the same pruned state) + policy-conflict fail-closed behaviour (wildcards, inverted windows, dual-authority drains, contradictory requests) + cross-organisation federation (signed authority artifacts: export, verify against published roots, operator-mediated admission, propagated revocation, conservation across the boundary) + sealed audit-window tool (choose a from/to date-time, get a self-verifying evidence package with operator-HMAC token + boundary state digests) + autonomous-corporation demo (a governed day at Nexus: 9 allowed, 5 denied, every event receipted) + sovereign governance capture drill (majority departments + 40% agents + n−1 operator credentials: escalation, override and amendment attempts all fail closed) + economic decoupling battery (zero fees/gas/prices/stakes/tokens/markets in the enforcement path), game-theoretic adversary profiles + Byzantine-coalition drill, reproducible byte-identical builds, enforced pre-commit gate + flake harness, dependency SHA-256 locking + pip-audit, seed-replayable consensus, SMT-solver proofs (Z3), interpreter pinning + poisoned-builtins, constant-time audit, Ouroboros + kill -9 drills, mock-host fail-closed, property-based + differential search, wire-level partition drill (Jepsen-class), crypto known-answer vectors, raw-bytes wire fuzz, deep graph hunt, depth/type bombs + 1,000-command isolation drill — green (2026-10-21, latest recorded run)** |
 | Enterprise integrations (brokers, payments, storage) | ⏳ roadmap — none operational today |
 | Federation of authority across organizations | ⏳ designed, not standardized |
 | Third-party certification / independent audit | ❌ none — not claimed |
