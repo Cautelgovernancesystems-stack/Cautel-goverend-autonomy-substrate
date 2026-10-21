@@ -86,6 +86,7 @@ retested in [`FINDINGS.md`](FINDINGS.md).
 - **[Due-diligence package](CAUTEL_DUE_DILIGENCE/README.md)** — the 15-minute proof
 - **[Claim-to-evidence matrix](docs/CLAIM_TO_EVIDENCE.md)** — every claim, its test, its limitation
 - **[The challenge](CHALLENGE.md)** — have a crack
+- **[Reviewer kit](REVIEWER_KIT.md)** — ten minutes to your first attack
 - **[Findings](FINDINGS.md)** — weaknesses hunted, numbered, fixed
 
 ## The hard questions, answered on the front page

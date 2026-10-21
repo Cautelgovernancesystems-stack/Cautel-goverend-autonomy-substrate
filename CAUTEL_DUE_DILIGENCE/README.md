@@ -5,7 +5,9 @@
 This package exists so a serious evaluator can prove the claims in 15
 minutes without reading source code. Every number here is produced by a
 battery that ran in the last full sweep; every denial below is a real
-engine output, not a description of one.
+engine output, not a description of one. The figures are **reported
+results, not independent validation** — independent reproduction is
+exactly what reviewers are invited to provide.
 
 ## Read it in 15 minutes
 
@@ -22,6 +24,7 @@ engine output, not a description of one.
 | 09 | [roadmap](09-roadmap.md) | What is next, and what is honestly not yet |
 | 10 | [../CHALLENGE.md](../CHALLENGE.md) | The constitutional escape attempts — have a crack |
 | 11 | [../FINDINGS.md](../FINDINGS.md) | The public findings ledger (weaknesses hunted, numbered, fixed) |
+| 12 | [../REVIEWER_KIT.md](../REVIEWER_KIT.md) | Ten minutes to your first attack — start here |
 
 ## The green board
 
