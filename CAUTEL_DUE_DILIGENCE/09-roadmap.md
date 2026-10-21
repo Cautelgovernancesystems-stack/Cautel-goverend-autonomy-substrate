@@ -21,8 +21,11 @@ not yet.
 
 ## Medium term
 
-5. **Multi-organisation federation** — portable authority artifacts and
-   roots of trust across organisations (designed, not yet standardised).
+5. **Multi-organisation federation** — v1 demonstrated: portable,
+   signed authority artifacts cross an organisational boundary (export,
+   verify against published roots, operator-mediated admission, propagated
+   revocation, cross-boundary budget conservation — 11/11). Remaining:
+   PKI-based roots, key rotation, multi-hop federation.
 6. **Population-scale policy simulation** — scenario-level replay exists
    today; population-level impact modelling is planned as an adoption
    integration.
