@@ -77,3 +77,57 @@ while the federation as a whole builds something unsafe.
 5. Address the three candidate findings themselves: m-of-n operator
    signing, federation root rotation/withdrawal, and the grandfathering
    rule.
+
+---
+
+# CAUTEL Field Coop — The Invariants, Explained by a Chicken
+
+**Clearance: EGG-1 · Pen access: DENIED**
+
+*This section is an illustrative, non-normative translation. The formal
+invariants and the test evidence in
+[`CLAIM_TO_EVIDENCE.md`](CLAIM_TO_EVIDENCE.md) remain authoritative —
+even the chicken has to substantiate its claims.*
+
+## Authority
+
+🐓 The chicken cannot authorise its own road crossing.
+
+*Formal meaning:* execution requires the prescribed authenticated
+authority and authorisation checks.
+
+## Delegation
+
+🐓 The chicken cannot delegate itself permission to cook itself.
+
+*Formal meaning:* delegation constraints and cycle prevention must be
+enforced. *(Receipt qualification, stated plainly: the cycle-denial
+tests support the delegation-cycle invariant; they do not by
+themselves prove every possible form of self-delegation is rejected.
+That is exactly the kind of claim the completeness layer exists to
+keep honest.)*
+
+## Policy integrity
+
+🐓 The chicken cannot rewrite the dinner rules and declare itself
+innocent.
+
+*Formal meaning:* unauthorised policy changes trigger the defined
+restricted response.
+
+## Constitutional completeness
+
+🐓 The chicken may identify a missing LEGO block, but it cannot certify
+that the whole construction plan is correct.
+
+*Formal meaning:* enforcement does not establish the completeness or
+domain correctness of the governing requirements.
+
+## The governing rule of the coop
+
+> **No bird may exercise delegated authority over its own cooking.**
+
+The chicken stays in the documentation, not in the trust chain. No
+signing key. No pen. No self-certification. And definitely no authority
+over the breakfast budget.
+
