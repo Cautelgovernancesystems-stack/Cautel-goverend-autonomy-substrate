@@ -36,6 +36,22 @@ not yet.
 8. **Production deployment** — managed hosting, multi-site redundancy,
    alerting (currently none — there is no remote to alert).
 
+## Next hardening round (mandate from the constitutional root audit, 2026-10-22)
+
+1. **Constitutional completeness assurance** — a distinct capability,
+   not just more security tests: a coverage specification, the first
+   three gap detectors (authority-root assurance, trust-root lifecycle,
+   policy continuity), detectors tested against deliberately incomplete
+   constitutions, and the passing-scan wording that says exactly what
+   it proves. See docs/CONSTITUTIONAL_COMPLETENESS.md.
+2. **m-of-n operator signing** — threshold signing for authority
+   genesis, with genuinely independent keys, approval paths and
+   recovery.
+3. **Federation root lifecycle** — governed rotation, withdrawal and
+   compromise handling for partner roots.
+4. **Policy continuity rule** — defined grandfathering/migration
+   semantics for grants across constitutional amendments.
+
 ## Explicitly not on the roadmap
 
 - No token, staking, fee, or market mechanism — ever. The governance

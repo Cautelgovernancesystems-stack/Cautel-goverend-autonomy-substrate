@@ -19,6 +19,31 @@ them, number them, and turn each one into a permanent test.
 | 008 | Governance capture exposed that key material was still served while restricted | the governed clear could be attempted mid-tamper | secrets withheld while restricted; governed clear refused during restricted (now G5b) | green (capture drill 30/30) |
 | 009 | Point-in-time query battery's fixed 60s cap no longer fit the 538k-block chain | real-chain smoke timed out as the evidence grew | subprocess headroom sized to chain growth | green (15/15) |
 
+## Finding #010 — second-order assurance gap (constitutional audit, 2026-10-22)
+
+Description: the enforcement machinery works within a narrower proof
+boundary than the overall system needs. All 669 checks establish that
+CAUTEL enforces its constitution correctly; none can establish that the
+constitution itself answers every critical governance question.
+
+Impact: constitutional omissions remain undetected while the full sweep
+is green.
+
+Status: recorded — the rationale, three-layer model (enforcement /
+completeness / domain correctness) and detector design principles are
+published in docs/CONSTITUTIONAL_COMPLETENESS.md. Fixes scheduled for
+the next hardening round (frozen release untouched).
+
+Three candidate findings from the same audit (candidates, not
+confirmed code defects — implementation review required before
+declaring vulnerabilities):
+
+| # | Candidate | Question it raises |
+|---|---|---|
+| C1 | Single operator signing key (no m-of-n on the signing path) | is a signing-threshold model declared for every authority tier? |
+| C2 | Federation roots have no rotation/withdrawal lifecycle | is there governed withdrawal of a compromised partner root? |
+| C3 | Grants carry no policy-version binding | are grants bound to a policy version, or is survival across amendments explicitly governed? |
+
 ## External findings
 
 *None yet — this section exists on purpose. The first external reviewer

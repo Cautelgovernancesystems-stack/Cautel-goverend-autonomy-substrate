@@ -88,6 +88,7 @@ retested in [`FINDINGS.md`](FINDINGS.md).
 - **[The challenge](CHALLENGE.md)** — have a crack
 - **[Reviewer kit](REVIEWER_KIT.md)** — ten minutes to your first attack
 - **[Findings](FINDINGS.md)** — weaknesses hunted, numbered, fixed
+- **[Constitutional completeness](docs/CONSTITUTIONAL_COMPLETENESS.md)** — the second assurance layer, specified (not yet built)
 
 ## The hard questions, answered on the front page
 
