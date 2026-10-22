@@ -84,6 +84,8 @@ while the federation as a whole builds something unsafe.
 
 **Clearance: EGG-1 · Pen access: DENIED**
 
+**Official doctrine: when the evidence is scrambled, so is breakfast.**
+
 *This section is an illustrative, non-normative translation. The formal
 invariants and the test evidence in
 [`CLAIM_TO_EVIDENCE.md`](CLAIM_TO_EVIDENCE.md) remain authoritative —
