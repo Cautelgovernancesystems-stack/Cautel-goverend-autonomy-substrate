@@ -38,7 +38,7 @@ line becomes a new test and a new entry in [`FINDINGS.md`](FINDINGS.md).
 
 ## The standing offer
 
-The current full sweep is **68 suites / 764 checks / 0 failures**. Every
+The current full sweep is **65 suites / 786 checks / 0 failures** (plus the 1,000-command V18 isolation drill and the 3 CLI anchor gates — seal verify, airgap anchor, constitution self-test — all green). Every
 line above maps to a battery in that sweep. If you can falsify any
 line — or find an attack we have not listed — the finding goes into
 [`FINDINGS.md`](FINDINGS.md) with your name on it, and the fix becomes a

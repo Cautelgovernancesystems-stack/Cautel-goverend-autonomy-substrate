@@ -154,7 +154,7 @@ Straight answers, no rounding up:
 | Production-ready external integrations | **None.** The only integration is the local Ollama inference backend. No broker, payment, or third-party API integration exists in the codebase |
 | Outside operators | **None.** No one outside the development environment has operated CAUTEL end-to-end |
 
-**Current verification totals** (2026-11-21): 66 battery suites, 750
+**Current verification totals** (2026-11-21): 65 battery suites, 786
 checks — OpenAI Agents governed-tool adapter + cross-constitutional
 scenarios + peer-stale boot grace + L2 constitutional-completeness
 detectors + declared

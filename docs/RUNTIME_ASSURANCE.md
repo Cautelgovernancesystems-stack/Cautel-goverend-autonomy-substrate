@@ -54,7 +54,7 @@ per-block chain MACs, raft CAS, the executioner kill-chain rework, the
 clock-drift tripwire) — those are covered by internal adversarial
 batteries, and the separation is labeled, not hidden (see `docs/FAQ.md`).
 
-Current full sweep (2026-09-12): **28 suites, 425 adversarial checks** —
+Current full sweep (2026-11-21): **65 suites, 786 adversarial checks** —
 enforcement race/TOCTOU, endpoint auth (24/24), chain block-auth (12/12),
 raft store CAS (9/9), executioner kill chain (19/19), guardian cone
 (32/32), evidence-watch (30/30), vault (18/18 + hardware 35/35),

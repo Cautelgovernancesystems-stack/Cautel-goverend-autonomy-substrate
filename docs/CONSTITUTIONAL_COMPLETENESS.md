@@ -12,7 +12,7 @@ hardening round.
 
 | Layer | Question | Assurance today |
 |---|---|---|
-| **L1 — Constitutional enforcement** | Does CAUTEL enforce the declared rules, authority boundaries, state transitions and evidence requirements correctly? | The existing machinery: 57 suites / 669 checks, 0 failures |
+| **L1 — Constitutional enforcement** | Does CAUTEL enforce the declared rules, authority boundaries, state transitions and evidence requirements correctly? | The existing machinery: 65 suites / 786 checks, 0 failures |
 | **L2 — Constitutional completeness** | Have the necessary governance questions been answered? Are critical mechanisms declared? Are omissions, contradictions and undefined transitions detected? | **The gap this audit exposed.** No machinery exists. |
 | **L3 — Domain correctness** | Are the requirements suitable for the business, industry, legal obligations and real-world consequences? | Irreducibly human. Expert judgement. |
 
@@ -20,7 +20,7 @@ The distinction matters: L2 can detect *known classes* of omission.
 L3 determines whether the requirements make sense in the real world.
 Neither replaces the enforcement layer.
 
-**The audit's finding, in one sentence:** all 669 checks can pass while
+**The audit's finding, in one sentence:** all 786 checks can pass while
 a constitutional omission remains undetected — because the checks are
 doing exactly what they were designed to do.
 

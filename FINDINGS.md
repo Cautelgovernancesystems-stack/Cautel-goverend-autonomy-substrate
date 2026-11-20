@@ -22,17 +22,20 @@ them, number them, and turn each one into a permanent test.
 ## Finding #010 — second-order assurance gap (constitutional audit, 2026-10-22)
 
 Description: the enforcement machinery works within a narrower proof
-boundary than the overall system needs. All 669 checks establish that
+boundary than the overall system needs. All 786 checks establish that
 CAUTEL enforces its constitution correctly; none can establish that the
 constitution itself answers every critical governance question.
 
 Impact: constitutional omissions remain undetected while the full sweep
 is green.
 
-Status: recorded — the rationale, three-layer model (enforcement /
-completeness / domain correctness) and detector design principles are
-published in docs/CONSTITUTIONAL_COMPLETENESS.md. Fixes scheduled for
-the next hardening round (frozen release untouched).
+Status: FIXED — the L2 constitutional-completeness detectors
+(`bin/constitutional_coverage.py`, 9/9, in the sweep) refuse the known
+omission classes (signing threshold, root lifecycle, policy
+continuity) and state exactly what a passing scan proves; the
+rationale, three-layer model (enforcement / completeness / domain
+correctness) and detector design principles are published in
+docs/CONSTITUTIONAL_COMPLETENESS.md.
 
 Three candidate findings from the same audit (candidates, not
 confirmed code defects — implementation review required before
@@ -61,5 +64,5 @@ in the gated sweep.
 ## External findings
 
 *None yet — this section exists on purpose. The first external reviewer
-who falsifies a line in [CHALLENGE.md](CHALLENGE.md) gets Finding #010
-and a named credit here.*
+who falsifies a line in [CHALLENGE.md](CHALLENGE.md) gets the next
+Finding number (012, after #011) and a named credit here.*

@@ -25,8 +25,8 @@ here, it is not claimed.
 
 ## Reading the evidence
 
-- The batteries above run in the governed full sweep: **57 suites /
-  669 checks / 0 failures** (2026-10-21). Per-suite final lines are
+- The batteries above run in the governed full sweep: **65 suites /
+  786 checks / 0 failures** (2026-11-21). Per-suite final lines are
   reproduced verbatim in
   [`CAUTEL_DUE_DILIGENCE/06-test-matrix.md`](../CAUTEL_DUE_DILIGENCE/06-test-matrix.md).
 - Each limitation column is a boundary we state rather than hide; the

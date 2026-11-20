@@ -57,9 +57,9 @@ different layer of the stack:
 | Audit | Accounting records | Tamper-evident evidence chain |
 | Discipline | HR process | Revocation — transitive, instant |
 
-## Status (2026-10-18)
+## Status (2026-11-21)
 
-68 test suites, 764 checks, 0 failures — including a sovereign
+65 test suites, 786 checks, 0 failures — including a sovereign
 governance-capture drill (majority-compromised departments and agents,
 n−1 operator credentials: every escalation and amendment attempt fails
 closed), a Byzantine-coalition drill, wire-level partition testing, and
