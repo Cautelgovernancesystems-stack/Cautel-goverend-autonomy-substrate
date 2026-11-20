@@ -8,7 +8,7 @@ enforced by a mechanism and proven by a battery. Two layers:
 | # | Guarantee | Enforcement | Proof |
 |---|---|---|---|
 | G1 | Authority cannot be created | operator-only genesis (`unauthorized` otherwise) | capture drill 30/30 |
-| G2 | Authority must be granted | no other entry path exists | engine law + drills 21/21 |
+| G2 | Authority must be granted | no other entry path exists; an m-of-n operator quorum is declarable for genesis (`operator_quorum.threshold`) | engine law + drills 21/21 + operator-quorum battery 10/10 |
 | G3 | Authority cannot increase during delegation | conservation arithmetic at apply | property-based 7/7, differential 3/3 |
 | G4 | Revoked authority cannot execute | revocation is transitive; stale spends die | drills, adversary profiles 8/8 |
 | G5 | Every execution produces evidence | sealed transitions on the tamper chain | torn-tail 9/9, ouroboros 7/7 |
