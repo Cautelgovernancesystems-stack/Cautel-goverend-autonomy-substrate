@@ -60,4 +60,6 @@ inotify), a full ring (60 s, full verification), and an airgap ring that
 pins the evidence chain to offline media. Each verifies the sealed
 manifest before it starts. Restricted mode engages on drift, tamper,
 clock anomaly, or peer staleness — and lifts only through the governed,
-audited clear.
+audited clear. A boot grace applies to peer-staleness evaluation (the
+fleet-restart race that used to trip restricted mode on every recovery
+is closed at the source — battery 4/4).

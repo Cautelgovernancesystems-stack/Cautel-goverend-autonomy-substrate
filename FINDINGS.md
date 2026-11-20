@@ -44,6 +44,20 @@ declaring vulnerabilities):
 | C2 | Federation roots have no rotation/withdrawal lifecycle | is there governed withdrawal of a compromised partner root? | **FIXED (2026-11-20)** — generation-aware roots, rotation with grace, withdrawal, reactivation; lifecycle battery 12/12 |
 | C3 | Grants carry no policy-version binding | are grants bound to a policy version, or is survival across amendments explicitly governed? | **FIXED (2026-11-20)** — `policy_continuity` declared (grandfather default, rebind enforced); grants record their policy version; continuity battery 9/9 |
 
+## Finding #011 — partition-drill submit path could target the isolated leader (2026-11-21)
+
+Description: the drill's spend helper re-scanned every node for the
+leader; the isolated old leader still reports role=leader and answers
+the scan, so spends hung against its cut links and timed out — the
+cause of every intermittent 11/12 partition-drill result.
+
+Impact: the majority-commit property was not being exercised correctly
+under load (test-harness defect, not an enforcement-plane defect).
+
+Fixed: P2b now submits against the MAJORITY only; the leader scan
+timeout is load-proofed. Verified 12/12 under artificial CPU load and
+in the gated sweep.
+
 ## External findings
 
 *None yet — this section exists on purpose. The first external reviewer
