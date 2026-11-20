@@ -154,8 +154,10 @@ Straight answers, no rounding up:
 | Production-ready external integrations | **None.** The only integration is the local Ollama inference backend. No broker, payment, or third-party API integration exists in the codebase |
 | Outside operators | **None.** No one outside the development environment has operated CAUTEL end-to-end |
 
-**Current verification totals** (2026-10-21): 57 battery suites, 669
-checks — revocation-propagation timing (lagging replicas converge to the
+**Current verification totals** (2026-11-20): 58 battery suites, 680
+checks — first governed third-party integration (CadenceOps memory
+actions: scoped keys to principals, operator-gated authoritative
+writes, exactly-once commit cycle) + revocation-propagation timing (lagging replicas converge to the
 same pruned state) + policy-conflict fail-closed behaviour + cross-organisation federation (signed authority artifacts:
 export, verify against published roots, operator-mediated admission,
 propagated revocation, budget conservation across the boundary) +

@@ -36,6 +36,16 @@ not yet.
 8. **Production deployment** — managed hosting, multi-site redundancy,
    alerting (currently none — there is no remote to alert).
 
+## First third-party integration — BUILT (2026-11-20)
+
+CadenceOps (soul-thread-nexus) memory actions now run through the
+enforcement chain via a typed adapter: scoped API keys map to CAUTEL
+principals, authoritative writes (decisions, supersede, promote,
+archive) are operator-gated regardless of key scope, and the full
+claim → execute → commit exactly-once cycle is enforced. Battery:
+11/11 (`bin/test_cadenceops_integration.py`). The reference integration
+is hermetic — live credentials and deployment remain owner-gated.
+
 ## Next hardening round (mandate from the constitutional root audit, 2026-10-22)
 
 1. **Constitutional completeness assurance** — a distinct capability,
