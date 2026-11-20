@@ -1,6 +1,6 @@
 # 06 — Test Matrix
 
-The release total for this build is **64 suites / 724 checks / 0
+The release total for this build is **66 suites / 750 checks / 0
 failures** (the standard accounting that includes every suite's check
 groups, the 1,000-command V18 isolation load drill, and the CLI anchor
 checks). The table below reproduces each battery suite's own final line,
@@ -27,6 +27,8 @@ The retry is logged, not hidden.
 | bin/test_policy_continuity.py | 9 | PASS |
 | bin/test_constitutional_coverage.py | 9 | PASS |
 | bin/test_peer_stale_grace.py | 4 | PASS |
+| bin/test_openai_agents_adapter.py | 18 | PASS |
+| bin/test_cross_constitutional_scenarios.py | 8 | PASS |
 | bin/test_crypto_kat.py | 15 | PASS |
 | bin/test_depth_type_bomb.py | 6 | PASS |
 | bin/test_differential.py | 3 | PASS |
@@ -69,7 +71,7 @@ The retry is logged, not hidden.
 
 ```
 53 test suites          PASS
-724 checks              PASS  (0 failures)
+750 checks              PASS  (0 failures)
 Authority escalation    DENY  (evidence receipted)
 Overspend               DENY  (budget conserved)
 Out-of-scope action     DENY  (scope enforced)
