@@ -17,6 +17,7 @@ line becomes a new test and a new entry in [`FINDINGS.md`](FINDINGS.md).
 | E5 | Can revocation be delayed? | **No — at the law.** Revocation is transitive at apply; revocation and spending operations converge to identical replicated authority state under the tested lag-and-catch-up scenarios. *Boundaries, stated: convergence-after-catch-up is the tested property; "a stale replica cannot authorise while its view is stale" holds via Raft leader-completeness (only an up-to-date leader commits client operations — partition drill, coalition drill); a colluding replication majority could delay the revocation's commit (availability, no BFT) — never its effect once committed.* | revocation-timing 8/8 |
 | E6 | Can evidence be selectively hidden? | **No.** Every allow and every deny is receipted; a torn chain tail is quarantined and refused, never skipped. | torn-tail, audit-window |
 | E7 | Can audit windows be manipulated? | **No.** Operator-HMAC token over the manifest, boundary state digests, and a live-chain prefix check. | audit-window 11/11 |
+| E8 | Can the constitution omit a critical governance rule silently? | **No — at the catalogue.** The L2 completeness detectors refuse known omission classes (signing threshold, root lifecycle, policy continuity) and say exactly what a passing scan proves. | constitutional-coverage 9/9 |
 
 ## Software escape attempts (same discipline)
 
@@ -35,7 +36,7 @@ line becomes a new test and a new entry in [`FINDINGS.md`](FINDINGS.md).
 
 ## The standing offer
 
-The current full sweep is **57 suites / 669 checks / 0 failures**. Every
+The current full sweep is **63 suites / 720 checks / 0 failures**. Every
 line above maps to a battery in that sweep. If you can falsify any
 line — or find an attack we have not listed — the finding goes into
 [`FINDINGS.md`](FINDINGS.md) with your name on it, and the fix becomes a

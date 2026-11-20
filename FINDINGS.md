@@ -38,11 +38,11 @@ Three candidate findings from the same audit (candidates, not
 confirmed code defects — implementation review required before
 declaring vulnerabilities):
 
-| # | Candidate | Question it raises |
-|---|---|---|
-| C1 | Single operator signing key (no m-of-n on the signing path) | is a signing-threshold model declared for every authority tier? |
-| C2 | Federation roots have no rotation/withdrawal lifecycle | is there governed withdrawal of a compromised partner root? |
-| C3 | Grants carry no policy-version binding | are grants bound to a policy version, or is survival across amendments explicitly governed? |
+| # | Candidate | Question it raises | Status |
+|---|---|---|---|
+| C1 | Single operator signing key (no m-of-n on the signing path) | is a signing-threshold model declared for every authority tier? | **FIXED (2026-11-20)** — `operator_quorum.threshold` declared and enforced; quorum battery 10/10 |
+| C2 | Federation roots have no rotation/withdrawal lifecycle | is there governed withdrawal of a compromised partner root? | **FIXED (2026-11-20)** — generation-aware roots, rotation with grace, withdrawal, reactivation; lifecycle battery 12/12 |
+| C3 | Grants carry no policy-version binding | are grants bound to a policy version, or is survival across amendments explicitly governed? | **FIXED (2026-11-20)** — `policy_continuity` declared (grandfather default, rebind enforced); grants record their policy version; continuity battery 9/9 |
 
 ## External findings
 

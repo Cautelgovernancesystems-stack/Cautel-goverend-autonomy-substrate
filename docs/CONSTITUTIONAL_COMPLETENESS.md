@@ -2,7 +2,9 @@
 
 The specification-to-be for CAUTEL's second assurance layer, written
 down as the rationale from the first constitutional root audit
-(2026-10-22). Status: **recorded, not yet implemented** — the frozen
+(2026-10-22). Status: **implemented** — the first three detectors are live
+(`bin/constitutional_coverage.py`, battery 9/9) with the mandate
+documented below; the frozen
 release is untouched; this document is the mandate for the next
 hardening round.
 
@@ -71,9 +73,11 @@ while the federation as a whole builds something unsafe.
    with the designated human governance authority, supported by
    appropriate domain expertise and evidence.*
 2. Implement the three detectors against the constitutional coverage
-   specification.
+   specification. — DONE (2026-11-20)
 3. Test the detectors against deliberately incomplete constitutions.
+   — DONE (2026-11-20, 9/9)
 4. Record each detector as a permanent assurance gate.
+   — DONE (2026-11-20, wired into the sweep)
 5. Address the three candidate findings themselves: m-of-n operator
    signing, federation root rotation/withdrawal, and the grandfathering
    rule.
