@@ -78,9 +78,10 @@ while the federation as a whole builds something unsafe.
    — DONE (2026-11-20, 9/9)
 4. Record each detector as a permanent assurance gate.
    — DONE (2026-11-20, wired into the sweep)
-5. Address the three candidate findings themselves: m-of-n operator
-   signing, federation root rotation/withdrawal, and the grandfathering
-   rule.
+5. Address the three candidate findings themselves — DONE
+   (2026-11-20/21): m-of-n operator signing (10/10), federation root
+   lifecycle (12/12), the grandfathering rule (9/9). The full mandate
+   above is closed.
 
 ---
 

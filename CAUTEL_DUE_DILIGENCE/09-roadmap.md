@@ -46,17 +46,26 @@ claim → execute → commit exactly-once cycle is enforced. Battery:
 11/11 (`bin/test_cadenceops_integration.py`). The reference integration
 is hermetic — live credentials and deployment remain owner-gated.
 
+## Constitutional round — COMPLETE (2026-11-21)
+
+The audit's mandate is closed: the doctrine line is enshrined in the
+whitepaper; the three gap detectors are live in the sweep; and the
+three candidate findings are fixed with batteries — m-of-n operator
+signing (10/10), federation root lifecycle (12/12), the grandfathering
+rule (9/9). Remaining constitutional work: PKI-based federation roots,
+multi-hop federation, and the human decision of whether to activate
+2-of-3 on the live plane (owner-gated).
+
 ## Next hardening round (mandate from the constitutional root audit, 2026-10-22)
 
-1. **Constitutional completeness assurance** — a distinct capability,
-   not just more security tests: a coverage specification, the first
-   three gap detectors (authority-root assurance, trust-root lifecycle,
-   policy continuity), detectors tested against deliberately incomplete
-   constitutions, and the passing-scan wording that says exactly what
-   it proves. See docs/CONSTITUTIONAL_COMPLETENESS.md.
-2. **m-of-n operator signing** — threshold signing for authority
-   genesis, with genuinely independent keys, approval paths and
-   recovery.
+1. **Constitutional completeness assurance** — DONE (2026-11-20): the
+   first three detectors are live (`bin/constitutional_coverage.py`),
+   tested against deliberately incomplete constitutions (9/9), wired
+   into the sweep, with the passing-scan wording. See
+   docs/CONSTITUTIONAL_COMPLETENESS.md.
+2. **m-of-n operator signing** — DONE (2026-11-20): threshold signing
+   declared and enforced (`operator_quorum.threshold`), distinct-key,
+   revoked-key-proof, back-compat — 10/10.
 3. **Federation root lifecycle** — DONE (2026-11-20): generation-aware
    artifacts, rotation with grace, withdrawal, governed reactivation —
    12/12. Remaining: PKI-based roots, multi-hop federation.
