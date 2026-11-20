@@ -33,10 +33,12 @@ line becomes a new test and a new entry in [`FINDINGS.md`](FINDINGS.md).
 | S8 | Poison the interpreter or builtins | interpreter pin 7/7 |
 | S9 | Tamper the release between builds | reproducible builds (4,606 byte-identical files) |
 | S10 | Overload the ALLOW boundary | probe-guard tarpit, V18 1,000-command drill |
+| S11 | Delete, tear, or drift the governing configuration and hope for a silent bootstrap | **No.** Torn constitution, drifted (post-attestation) edit, deleted secrets, deleted attestation, and a meta-constitutional violation each fail closed as a structured denial; nothing executes across any failure; the law is deterministic under a missing config; restoration + re-attest restores enforcement. | missing-configuration 9/9 |
+| S12 | Make the sweep gate lie (accept a failing commit) | **No.** The gate self-test runs a deliberately failing suite and a green suite through the gate itself: the failing one must reject (exit 1), the green one must pass, and the gate is bash-valid — the enforcing gate is part of the sweep it enforces. | sweep-gate-self 5/5 |
 
 ## The standing offer
 
-The current full sweep is **63 suites / 720 checks / 0 failures**. Every
+The current full sweep is **68 suites / 764 checks / 0 failures**. Every
 line above maps to a battery in that sweep. If you can falsify any
 line — or find an attack we have not listed — the finding goes into
 [`FINDINGS.md`](FINDINGS.md) with your name on it, and the fix becomes a
