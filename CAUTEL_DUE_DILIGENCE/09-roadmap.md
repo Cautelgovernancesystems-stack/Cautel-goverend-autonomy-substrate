@@ -60,8 +60,9 @@ is hermetic — live credentials and deployment remain owner-gated.
 3. **Federation root lifecycle** — DONE (2026-11-20): generation-aware
    artifacts, rotation with grace, withdrawal, governed reactivation —
    12/12. Remaining: PKI-based roots, multi-hop federation.
-4. **Policy continuity rule** — defined grandfathering/migration
-   semantics for grants across constitutional amendments.
+4. **Policy continuity rule** — DONE (2026-11-20): `policy_continuity`
+   declared (grandfather default, rebind mode enforced), grants record
+   their policy version — 9/9.
 
 ## Explicitly not on the roadmap
 
