@@ -57,8 +57,9 @@ is hermetic — live credentials and deployment remain owner-gated.
 2. **m-of-n operator signing** — threshold signing for authority
    genesis, with genuinely independent keys, approval paths and
    recovery.
-3. **Federation root lifecycle** — governed rotation, withdrawal and
-   compromise handling for partner roots.
+3. **Federation root lifecycle** — DONE (2026-11-20): generation-aware
+   artifacts, rotation with grace, withdrawal, governed reactivation —
+   12/12. Remaining: PKI-based roots, multi-hop federation.
 4. **Policy continuity rule** — defined grandfathering/migration
    semantics for grants across constitutional amendments.
 

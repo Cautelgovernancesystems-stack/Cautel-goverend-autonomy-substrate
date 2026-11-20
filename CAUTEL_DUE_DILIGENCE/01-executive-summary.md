@@ -59,7 +59,7 @@ different layer of the stack:
 
 ## Status (2026-10-18)
 
-59 test suites, 690 checks, 0 failures — including a sovereign
+60 test suites, 702 checks, 0 failures — including a sovereign
 governance-capture drill (majority-compromised departments and agents,
 n−1 operator credentials: every escalation and amendment attempt fails
 closed), a Byzantine-coalition drill, wire-level partition testing, and
