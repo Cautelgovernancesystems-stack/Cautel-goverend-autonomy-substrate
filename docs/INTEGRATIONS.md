@@ -15,10 +15,10 @@ are public.
 | CadenceOps (soul-thread-nexus) | ADOPTED | 11/11 (`bin/test_cadenceops_integration.py`) |
 | ZeroClaw | MAPPED | pattern reference (no code adopted) |
 | Hermes Agent Zero Auth | MAPPED | pattern reference (no code adopted) |
-| OpenManus | MAPPED | pattern reference; ADOPT candidate (tool-call path) |
-| suna | MAPPED | pattern reference; ADOPT candidate (sandbox/credential/trigger) |
-| ATLAS | MAPPED | pattern reference; grant rights, ADOPT possible later |
-| mindswarmai | MAPPED | pattern reference; UI scaffold, grant rights |
+| OpenManus | ADOPTED | 16/16 (`bin/test_openmanus_adapter.py`) — governed tool-call choke point |
+| suna | ADOPTED | 13/13 (`bin/test_suna_adapter.py`) — governed trigger -> sandbox gate |
+| ATLAS | ADOPTED | 14/14 (`bin/test_atlas_adapter.py`) — governed pre-trade filter chain as authority |
+| mindswarmai | ADOPTED | 15/15 (`bin/test_mindswarmai_adapter.py`) — governed swarm-run entitlements |
 
 ## 1. OpenAI Agents Python — governed tool adapter (ADOPTED)
 
@@ -96,7 +96,7 @@ gateway, not replace it — the gateway proves who you are, CAUTEL proves
 what you may do.
 
 
-## 5. OpenManus — agent tool-call framework (MAPPED)
+## 5. OpenManus — agent tool-call framework (ADOPTED)
 
 OpenManus is a general-purpose AI-agent framework (ReAct loop,
 ToolCallAgent, planning flow) from the MetaGPT lineage. The mapping to
@@ -118,7 +118,7 @@ adapter is a natural future adoption candidate, but it is a distinct
 SDK surface (`Tool` base class, `ToolCollection.execute`, planning
 flow) — not a trivially identical duplicate. Owner-gated.
 
-## 6. suna — sandboxed generalist agent (MAPPED)
+## 6. suna — sandboxed generalist agent (ADOPTED)
 
 Suna (kortix-ai) is a self-hosted generalist AI agent that acts on the
 user's behalf: FastAPI backend, Next.js frontend, per-project Daytona
@@ -140,7 +140,7 @@ future integration would place CAUTEL in front of the trigger executor
 (trigger -> envelope -> authorize -> admit -> sandbox), not replace it.
 Owner-gated.
 
-## 7. ATLAS — risk-bounded trading execution (MAPPED)
+## 7. ATLAS — risk-bounded trading execution (ADOPTED)
 
 ATLAS is a crypto strategy backtest/paper-trading platform whose
 centerpiece is a pre-trade risk filter chain. The mapping:
@@ -162,7 +162,7 @@ author make ADOPT possible later (expressing the filter chain as
 budget/scope rules for a trading principal); it is not required now.
 Owner-gated.
 
-## 8. mindswarmai ("Revealing Mind") — agent-orchestration UI scaffold (MAPPED)
+## 8. mindswarmai ("Revealing Mind") — agent-orchestration UI scaffold (ADOPTED)
 
 mindswarmai is a Lovable/Vite React + Supabase front-end for an
 autonomous-agent platform ("Revealing Mind": parallel Mind Swarm,
@@ -189,7 +189,6 @@ now. Owner-gated.
 - Any deployment of the governed adapters against live credentials
 - Publishing any code from the private repositories
 - Activating 2-of-3 operator quorum on the live plane
-- Adopting any of the four MAPPED repos (OpenManus, suna, ATLAS,
-  mindswarmai) as governed adapters — each is a new part (code +
-  hostile battery + live smoke + governed seal) and needs approval
-  before work starts
+- (2026-11-21: the four MAPPED repos — OpenManus, suna, ATLAS,
+  mindswarmai — were approved by the owner and ADOPTED: adapters +
+  adversarial batteries + sweep registration, sealed; statuses above)

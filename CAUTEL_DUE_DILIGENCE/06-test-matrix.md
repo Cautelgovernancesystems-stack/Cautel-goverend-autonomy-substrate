@@ -1,12 +1,12 @@
 # 06 — Test Matrix
 
-The release total for this build is **65 suites / 786 checks / 0
+The release total for this build is **70 suites / 859 checks / 0
 failures**, derived line-by-line from the most recent full sweep
 (2026-11-21) at `/tmp/sweep_final4.log` — the single receipt. The
 accounting: "suites" = every battery the sweep runs and gates on;
 "checks" = the sum of each suite's own reported check count. Reported
 alongside, not inside, the count: the 1,000-command V18 isolation load
-drill (1,000 commands, 0 errors, 17.7 evt/s) and the 3 CLI anchor gates
+drill (1,000 commands, 0 errors, 14.7 evt/s) and the 3 CLI anchor gates
 (seal verify, airgap anchor, constitution self-test — all green). One
 suite — the wire-level partition drill — flaked on raft election timing
 in an earlier sweep (11/12) and was settled and re-run by the sweep's
@@ -21,7 +21,9 @@ clean on the first pass: 12/12.
 | bin/test-upgrade.py | 13 | PASS |
 | bin/test-v18-isolated.py | PASS (1,000-command drill) | PASS |
 | bin/test_adversary_profiles.py | 8 | PASS |
+| bin/test_atlas_adapter.py | 14 | PASS |
 | bin/test_audit_window.py | 11 | PASS |
+| bin/test_cadenceops_gate.py | 14 | PASS |
 | bin/test_cadenceops_integration.py | 11 | PASS |
 | bin/test_case_law_drill.py | 12 | PASS |
 | bin/test_chain_auth.py | 12 | PASS |
@@ -47,9 +49,11 @@ clean on the first pass: 12/12.
 | bin/test_kill9_drill.py | 13 | PASS |
 | bin/test_liveness_airgap.py | 10 | PASS |
 | bin/test_loopback_auth.py | 24 | PASS |
+| bin/test_mindswarmai_adapter.py | 16 | PASS |
 | bin/test_missing_configuration.py | 9 | PASS |
 | bin/test_mock_host.py | 6 | PASS |
 | bin/test_openai_agents_adapter.py | 18 | PASS |
+| bin/test_openmanus_adapter.py | 16 | PASS |
 | bin/test_operator_quorum.py | 10 | PASS |
 | bin/test_ops_unlock.py | 9 | PASS |
 | bin/test_ouroboros.py | 7 | PASS |
@@ -65,6 +69,7 @@ clean on the first pass: 12/12.
 | bin/test_revocation_timing.py | 8 | PASS |
 | bin/test_runtime_seal.py | 12 | PASS |
 | bin/test_sensory_hardening.py | 15 | PASS |
+| bin/test_suna_adapter.py | 13 | PASS |
 | bin/test_sweep_gate_self.py | 5 | PASS |
 | bin/test_torn_tail.py | 9 | PASS |
 | bin/test_tpm_unlock.py | 8 | PASS |
@@ -84,9 +89,9 @@ clean on the first pass: 12/12.
 ## The green board
 
 ```
-65 test suites          PASS
-786 checks              PASS  (0 failures)
-1,000-command V18 drill PASS  (0 errors, 17.7 evt/s)
+70 test suites          PASS
+859 checks              PASS  (0 failures)
+1,000-command V18 drill PASS  (0 errors, 14.7 evt/s)
 3 CLI anchor gates      PASS  (seal verify, airgap, constitution self-test)
 Authority escalation    DENY  (evidence receipted)
 Overspend               DENY  (budget conserved)
@@ -100,10 +105,10 @@ Replay reconstruction   PASS  (torn-tail 9/9)
 Evidence chain integrity PASS (seal + airgap anchor)
 ```
 
-## Live-suite formats (inside the 65, all green in the same sweep)
+## Live-suite formats (inside the 70, all green in the same sweep)
 
 - ingress authz (bearer/unsigned/duplicate statuses) — PASS (5 scenarios)
-- V18 isolation load drill — 1,000 commands, 0 errors, 17.7 evt/s
+- V18 isolation load drill — 1,000 commands, 0 errors, 14.7 evt/s
 - TOCTOU — 5/5
 - probe guard — tarpit engaged, accept resets — PASS (5 checks)
 - upgrade drill — 13/13

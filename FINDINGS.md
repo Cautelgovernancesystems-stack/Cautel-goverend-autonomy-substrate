@@ -22,7 +22,7 @@ them, number them, and turn each one into a permanent test.
 ## Finding #010 — second-order assurance gap (constitutional audit, 2026-10-22)
 
 Description: the enforcement machinery works within a narrower proof
-boundary than the overall system needs. All 786 checks establish that
+boundary than the overall system needs. All 859 checks establish that
 CAUTEL enforces its constitution correctly; none can establish that the
 constitution itself answers every critical governance question.
 
