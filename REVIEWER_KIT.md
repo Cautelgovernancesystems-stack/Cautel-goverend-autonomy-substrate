@@ -65,7 +65,7 @@ recorded too — a documented disagreement is also a result.
 
 ## 7. Reproduce the reported results
 
-The full sweep is **70 suites / 859 checks / 0 failures (2026-11-21)** —
+The full sweep is **74 suites / 909 checks / 0 failures (2026-11-21)** —
 a *reported* result, not independent validation; that is precisely what
 you are invited to provide. Per-suite final lines are reproduced in
 [`CAUTEL_DUE_DILIGENCE/06-test-matrix.md`](CAUTEL_DUE_DILIGENCE/06-test-matrix.md).

@@ -1,12 +1,12 @@
 # 06 — Test Matrix
 
-The release total for this build is **70 suites / 859 checks / 0
+The release total for this build is **74 suites / 909 checks / 0
 failures**, derived line-by-line from the most recent full sweep
 (2026-11-21) at `/tmp/sweep_final4.log` — the single receipt. The
 accounting: "suites" = every battery the sweep runs and gates on;
 "checks" = the sum of each suite's own reported check count. Reported
 alongside, not inside, the count: the 1,000-command V18 isolation load
-drill (1,000 commands, 0 errors, 14.7 evt/s) and the 3 CLI anchor gates
+drill (1,000 commands, 0 errors, 18.8 evt/s) and the 3 CLI anchor gates
 (seal verify, airgap anchor, constitution self-test — all green). One
 suite — the wire-level partition drill — flaked on raft election timing
 in an earlier sweep (11/12) and was settled and re-run by the sweep's
@@ -28,6 +28,7 @@ clean on the first pass: 12/12.
 | bin/test_case_law_drill.py | 12 | PASS |
 | bin/test_chain_auth.py | 12 | PASS |
 | bin/test_claim_race.py | 11 | PASS |
+| bin/test_claims_watchdog.py | 11 | PASS |
 | bin/test_const_time_audit.py | 3 | PASS |
 | bin/test_constitutional_coverage.py | 9 | PASS |
 | bin/test_context_strip.py | 3 | PASS |
@@ -52,9 +53,11 @@ clean on the first pass: 12/12.
 | bin/test_mindswarmai_adapter.py | 16 | PASS |
 | bin/test_missing_configuration.py | 9 | PASS |
 | bin/test_mock_host.py | 6 | PASS |
+| bin/test_multi_hop.py | 14 | PASS |
 | bin/test_openai_agents_adapter.py | 18 | PASS |
 | bin/test_openmanus_adapter.py | 16 | PASS |
 | bin/test_operator_quorum.py | 10 | PASS |
+| bin/test_operator_root.py | 13 | PASS |
 | bin/test_ops_unlock.py | 9 | PASS |
 | bin/test_ouroboros.py | 7 | PASS |
 | bin/test_partition_drill.py | 12 | PASS |
@@ -64,6 +67,7 @@ clean on the first pass: 12/12.
 | bin/test_policy_continuity.py | 9 | PASS |
 | bin/test_property_based.py | 7 | PASS |
 | bin/test_query_at_time.py | 15 | PASS |
+| bin/test_quorum_ceremony.py | 12 | PASS |
 | bin/test_raft_cas.py | 9 | PASS |
 | bin/test_reproducible.py | 3 | PASS |
 | bin/test_revocation_timing.py | 8 | PASS |
@@ -89,9 +93,9 @@ clean on the first pass: 12/12.
 ## The green board
 
 ```
-70 test suites          PASS
-859 checks              PASS  (0 failures)
-1,000-command V18 drill PASS  (0 errors, 14.7 evt/s)
+74 test suites          PASS
+909 checks              PASS  (0 failures)
+1,000-command V18 drill PASS  (0 errors, 18.8 evt/s)
 3 CLI anchor gates      PASS  (seal verify, airgap, constitution self-test)
 Authority escalation    DENY  (evidence receipted)
 Overspend               DENY  (budget conserved)
@@ -105,10 +109,10 @@ Replay reconstruction   PASS  (torn-tail 9/9)
 Evidence chain integrity PASS (seal + airgap anchor)
 ```
 
-## Live-suite formats (inside the 70, all green in the same sweep)
+## Live-suite formats (inside the 74, all green in the same sweep)
 
 - ingress authz (bearer/unsigned/duplicate statuses) — PASS (5 scenarios)
-- V18 isolation load drill — 1,000 commands, 0 errors, 14.7 evt/s
+- V18 isolation load drill — 1,000 commands, 0 errors, 18.8 evt/s
 - TOCTOU — 5/5
 - probe guard — tarpit engaged, accept resets — PASS (5 checks)
 - upgrade drill — 13/13

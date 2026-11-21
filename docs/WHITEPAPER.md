@@ -122,7 +122,7 @@ invariants rather than shipping mid-round. The external round ran 13
 claims across authorization, budget, revocation, finalization, evidence,
 and identity surfaces: **12 held fail-closed, 1 real finding (unsigned
 revert) found and fixed before the round closed, re-run clean.** Internal
-batteries: 859 checks across 70 suites, plus the 1,000-command V18
+batteries: 909 checks across 74 suites, plus the 1,000-command V18
 isolation load drill and the CLI anchors (constitution self-test, seal
 verify, airgap check) — all green. See `validation/` and
 `docs/FAQ.md`.
